@@ -1,0 +1,2 @@
+voting_channel_id = 702917926860095521
+announcement_channel_id = 703248634321305610
