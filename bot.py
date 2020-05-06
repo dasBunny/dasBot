@@ -79,11 +79,11 @@ async def purge_votes(ctx):
         save()
 
 @bot.command()
-async def vote(ctx,*topic):
+async def vote(ctx,majority,quota,*topic):
     if vote_helper.checkForRole(ctx.author,'Trusted'):
         topic_string = " ".join(topic)
         eligible = vote_helper.getEligibleCount(ctx)
-        v = voteClass.Vote(ctx.message.author.id,round((eligible*0.35)),round((eligible/2)+0.5),datetime.now()+timedelta(days=2),bot,topic_string)
+        v = voteClass.Vote(ctx.message.author.id,round((eligible*float(quota))),round(eligible*float(majority)),datetime.now()+timedelta(days=2),bot,topic_string)
         await v.sendMessage()
         vote_list.append(v)
         print(v.json_dict())
