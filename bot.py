@@ -1,14 +1,14 @@
 import discord
 import vote_helper
 import json
-import  asyncio
+import asyncio
 import voteClass
 import _pickle as pickle
 from datetime import datetime, timedelta
 from logins import bot_token
 from discord.ext import commands
 from strings import * #pylint: disable=unused-wildcard-import
-from config import *    #pylint: disable=unused-wildcard-import
+from config import *  #pylint: disable=unused-wildcard-import
 
 bot = commands.Bot(command_prefix='!', description='''Ich stinke hart nach hurensohn''')
 vote_list = []
