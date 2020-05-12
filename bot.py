@@ -1,3 +1,5 @@
+#!/bin/python3
+
 import discord
 import vote_helper
 import json

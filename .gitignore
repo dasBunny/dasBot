@@ -1,2 +1,3 @@
 logins.py
-__pycache__/*
+votes.json
+__pycache__/
