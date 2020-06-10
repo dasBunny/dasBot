@@ -1,4 +1,7 @@
+#!/usr/bin/python3
+
 import discord
+from logins import bot_token
 
 class Bot(discord.Client):
     def get_chat(self, channel):
@@ -12,9 +15,11 @@ class Bot(discord.Client):
         if before.channel != after.channel:
             if before.channel is not None:
                 chat = self.get_channel(self.get_chat(before.channel))
+                await chat.send("{} left the channel".format(member.display_name))
                 await chat.set_permissions(member, overwrite=None)
             if after.channel is not None:
                 chat = self.get_channel(self.get_chat(after.channel))
                 await chat.set_permissions(member, read_messages=True)
+                await chat.send("{} joined the channel".format(member.display_name))
 
-Bot().run('NzAyMDQ0ODA3MDgxNzU0NjQx.XqC7yg.lIlozDtNRlf7PFp9DzseE2FmIM8')
+Bot().run(bot_token)
