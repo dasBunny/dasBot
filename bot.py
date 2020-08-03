@@ -12,7 +12,7 @@ from discord.ext import commands
 from strings import * #pylint: disable=unused-wildcard-import
 from config import *  #pylint: disable=unused-wildcard-import
 
-bot = commands.Bot(command_prefix='!', description='''Ich stinke hart nach hurensohn''')
+bot = commands.Bot(command_prefix='!', description='''Discord Automation Service Bot''')
 vote_list = []
 
 def get_chat(channel):
