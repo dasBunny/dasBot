@@ -1,5 +1,3 @@
-#!/usr/bin/python3
-
 import discord
 from logins import bot_token
 
