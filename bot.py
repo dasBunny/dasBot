@@ -21,12 +21,17 @@ class Bot(discord.Client):
                 # create new text channel if none exist
                 if after.channel.id not in self.chat or \
                    self.get_channel(self.chat[after.channel.id]) is None:
-                    chat = await after.channel.guild .create_text_channel(
-                               'chat',
-                               topic=after.channel.name,
-                               category=self.get_channel(701908552163262508),
-                               position=2
-                           )
+                    guild = after.channel.guild
+                    chat = await guild.create_text_channel(
+                        'chat',
+                        topic=after.channel.name,
+                        category=self.get_channel(701908552163262508),
+                        overwrites={
+                            guild.default_role:
+                            discord.PermissionOverwrite(read_messages=False)
+                        },
+                        position=2,
+                    )
                     self.chat[after.channel.id] = chat.id
                 # get associated text channel
                 else:
